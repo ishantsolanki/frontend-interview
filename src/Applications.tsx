@@ -1,14 +1,20 @@
 import React from "react";
 import SingleApplication from "./SingleApplication";
-import { getSingleApplicationFixture } from "./__fixtures__/applications.fixture";
 import styles from "./Applications.module.css";
+import { useApplications } from "./network/applications";
+import { Loading } from "./components/Loading/Loading";
 
 const Applications = () => {
-  const applications = getSingleApplicationFixture;
-
+  const { data, isLoading } = useApplications(1, 10);
   return (
     <div className={styles.Applications}>
-      <SingleApplication application={applications[0]} />
+      {isLoading ? (
+        <Loading />
+      ) : (
+        data?.map((application) => (
+          <SingleApplication key={application.guid} application={application} />
+        ))
+      )}
     </div>
   );
 };
