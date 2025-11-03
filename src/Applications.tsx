@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useMemo } from "react";
 import SingleApplication from "./SingleApplication";
 import styles from "./Applications.module.css";
-import { useApplications } from "./network/applications";
 import { Loading } from "./components/Loading/Loading";
+import { ApplicationDTO } from "./model/Applications";
 
-const Applications = () => {
-  const { data, isLoading } = useApplications(1, 10);
+const Applications = ({
+  data,
+  isLoading,
+}: {
+  data: ApplicationDTO[];
+  isLoading: boolean;
+}) => {
   return (
     <div className={styles.Applications}>
       {isLoading ? (
