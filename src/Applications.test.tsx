@@ -32,8 +32,20 @@ test("renders application items when data is provided", () => {
   expect(emailName).toBeInTheDocument();
 
   const loan = screen.getByText(/loan amount/i);
-  const loanName = screen.getByText(/37597/i);
+  const loanName = screen.getByText(/£37,597/i);
 
   expect(loan).toBeInTheDocument();
   expect(loanName).toBeInTheDocument();
+
+  const applicationDate = screen.getByText(/application date/i);
+  const applicationDateValue = screen.getByText(/10-08-2021/i);
+
+  expect(applicationDate).toBeInTheDocument();
+  expect(applicationDateValue).toBeInTheDocument();
+
+  const expiryDate = screen.getByText(/expiry date/i);
+  const expiryDateValue = screen.getByText(/02-12-2021/i);
+
+  expect(expiryDate).toBeInTheDocument();
+  expect(expiryDateValue).toBeInTheDocument();
 });

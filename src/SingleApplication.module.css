@@ -11,7 +11,7 @@
 
 .cell {
   text-align: left;
-  border-right: 1px solid #eee;
+  font-weight: 600;
   padding: 0 15px;
 }
 
@@ -20,4 +20,8 @@
   font-size: 0.8rem;
   color: #999;
   margin-bottom: 5px;
+}
+
+.highlight {
+  color: #143b6b;
 }
